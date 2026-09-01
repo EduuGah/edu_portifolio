@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { Icon } from "./Icon";
 
 const links = [
@@ -5,17 +6,27 @@ const links = [
   ["projetos", "Projetos"], ["contato", "Contato"]
 ];
 
-export function Navigation({ active }) {
+export function Navigation({ active, onNavClick }) {
   return (
     <header className="nav-shell">
-      <a href="#inicio" className="brand" aria-label="Carlos Eduardo, início">
-        <span className="brand-mark">ce</span>
-        <span>Carlos Eduardo</span>
-      </a>
       <nav aria-label="Navegação principal">
         {links.map(([id, label]) => (
-          <a key={id} className={active === id ? "active" : ""} href={`#${id}`}>
+          <a 
+            key={id} 
+            className={active === id ? "active" : ""} 
+            href={`#${id}`}
+            onClick={(e) => {
+              if (onNavClick) onNavClick(id);
+            }}
+          >
             {label}
+            {active === id && (
+              <motion.div
+                layoutId="activeTab"
+                className="active-indicator"
+                transition={{ type: "spring", stiffness: 350, damping: 30 }}
+              />
+            )}
           </a>
         ))}
       </nav>

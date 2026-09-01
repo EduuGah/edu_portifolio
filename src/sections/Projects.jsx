@@ -1,63 +1,87 @@
+import { motion } from "motion/react";
 import { Icon } from "../components/Icon";
 
 const projects = [
   {
-    name: "ForgeFlow",
-    problem: "Organiza treinos de musculação em um só lugar: exercícios, fichas personalizadas, cargas, repetições e histórico de evolução.",
-    stack: ["React", "TypeScript", "Vite"],
-    repo: "https://github.com/EduuGah/ForgeFlow",
-    extra: { label: "Versão nativa em Kotlin", href: "https://github.com/EduuGah/Forge-Flow---Nativo" },
-    visual: "forge"
+    name: "DineFlow",
+    problem: "Sistema de pedidos para restaurantes: garçom lança no celular, a cozinha recebe em tempo real. Isolamento de restaurantes com RLS e testes.",
+    stack: ["Next.js", "React", "TypeScript", "Supabase"],
+    repo: "https://github.com/EduuGah/DineFlow",
+    demo: "https://dineflow.vercel.app", // Adjust if you have a real URL, else placeholder
+    image: "/projetos/dineflow.png"
   },
   {
-    name: "MetaFlow",
-    problem: "Centraliza projetos pessoais e as atividades vinculadas a cada projeto, deixando o acompanhamento do trabalho mais organizado.",
-    stack: ["Next.js", "JavaScript", "Firebase"],
-    repo: "https://github.com/EduuGah/MetaFlow",
-    visual: "meta"
+    name: "CutFlow",
+    problem: "SaaS para barbearias gerenciarem agendamentos, barbeiros, serviços, horários e avaliações de clientes de forma centralizada.",
+    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    repo: "https://github.com/EduuGah/CutFlow",
+    demo: "https://cutflow.vercel.app",
+    image: "/projetos/cutflow.png"
+  },
+  {
+    name: "ForgeFlow",
+    problem: "Web app para organizar treinos de musculação. Permite gerenciar exercícios, criar fichas e acompanhar evolução de cargas.",
+    stack: ["React", "TypeScript", "Vite", "Kotlin"],
+    repo: "https://github.com/EduuGah/ForgeFlow",
+    demo: "https://forgeflow.vercel.app",
+    extra: { label: "Versão Nativa", href: "https://github.com/EduuGah/Forge-Flow---Nativo" },
+    image: "/projetos/ForgeFlow.jpg"
+  },
+  {
+    name: "CoupleFlow",
+    problem: "Um espaço compartilhado para casais planejarem e registrarem coisas para fazer juntos, facilitando a organização diária.",
+    stack: ["React", "TypeScript", "Firebase"],
+    repo: "https://github.com/EduuGah/CoupleFlow",
+    demo: "https://coupleflow.vercel.app",
+    image: "/projetos/CoupleFlow.png"
   }
 ];
-
-function ProjectVisual({ type }) {
-  return (
-    <div className={`project-visual ${type}`}>
-      {type === "forge" ? (
-        <>
-          <div className="mini-phone"><span>ForgeFlow</span><b>Treino A</b><i>Supino reto</i><i>Remada baixa</i></div>
-          <div className="mini-chart"><b>evolução</b><div className="bars"><i/><i/><i/><i/><i/></div></div>
-        </>
-      ) : (
-        <>
-          <div className="mini-board"><span>MetaFlow</span><b>Projetos</b><i>Portfolio</i><i>CutFlow</i><i>Silicon Soil</i></div>
-          <div className="mini-task"><b>Hoje</b><span>3 tarefas</span><em>72%</em></div>
-        </>
-      )}
-    </div>
-  );
-}
 
 export function Projects() {
   return (
     <section id="projetos" className="section projects">
-      <div className="section-heading">
-        <span className="section-index">03</span>
-        <div><h2>Projetos em destaque</h2><p>Projetos pessoais que mostram como eu penso e construo.</p></div>
-      </div>
-
+      <motion.div 
+        className="section-heading"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6 }}
+      >
+        <div><h2>Projetos em destaque</h2><p>Projetos reais que mostram como eu penso e construo.</p></div>
+      </motion.div>
       <div className="projects-grid">
-        {projects.map(project => (
-          <article className="project-card" key={project.name}>
-            <ProjectVisual type={project.visual}/>
+        {projects.map((project, i) => (
+          <motion.article 
+            className="project-card" 
+            key={project.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+          >
+            <div className="project-image-container">
+              <img src={project.image} alt={`Screenshot de ${project.name}`} className="project-screenshot" />
+            </div>
             <div className="project-content">
-              <div className="project-head"><h3>{project.name}</h3><a href={project.repo} target="_blank" rel="noreferrer" aria-label={`Abrir ${project.name} no GitHub`}><Icon name="external" size={18}/></a></div>
+              <div className="project-head">
+                <h3>{project.name}</h3>
+                <a href={project.repo} target="_blank" rel="noreferrer" aria-label={`Abrir ${project.name} no GitHub`}><Icon name="external" size={18}/></a>
+              </div>
               <p>{project.problem}</p>
-              <div className="tags">{project.stack.map(tag => <span key={tag}>{tag}</span>)}</div>
+              <div className="tags">
+                {project.stack.map(tag => <span key={tag} className="badge"><Icon name="code" size={12}/> {tag}</span>)}
+              </div>
               <div className="project-links">
+                {project.demo && (
+                  <a href={project.demo} target="_blank" rel="noreferrer" className="demo-link">
+                    <Icon name="arrow" size={16}/> Acessar projeto
+                  </a>
+                )}
                 <a href={project.repo} target="_blank" rel="noreferrer"><Icon name="github" size={16}/> Ver repositório</a>
                 {project.extra && <a href={project.extra.href} target="_blank" rel="noreferrer">{project.extra.label} <Icon name="external" size={14}/></a>}
               </div>
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
     </section>
