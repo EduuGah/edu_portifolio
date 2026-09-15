@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-// 1. Fix Projects.jsx
+// 1. Fix Projects.jsx teste
 const projectsJSX = `import { motion } from "motion/react";
 import { Icon } from "../components/Icon";
 
