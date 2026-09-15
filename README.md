@@ -1,33 +1,35 @@
-# EduuGah — Portfólio
+# Portfólio — Carlos Eduardo
 
-Portfólio pessoal de Carlos Eduardo da Silva de Oliveira.
+Meu portfólio pessoal para apresentar projetos, estudos e minha evolução como desenvolvedor.
 
-## Stack
+## Tecnologias
 
 - React
-- Vite
 - JavaScript
+- Vite
+- Motion
 - CSS
-- SVG inline para ícones
 
-## Rodando localmente
+## Executando localmente
 
 ```bash
 npm install
 npm run dev
 ```
 
-Para produção:
+Para validar a versão de produção:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-O projeto está pronto para deploy na Vercel.
+## Estrutura
 
-## Identidade visual
-
-A interface usa uma paleta baseada em azul-petróleo, papel quente, verde-mint e amarelo de interface. A ideia é conectar o universo de código à evolução profissional sem recorrer ao visual SaaS genérico.
-
-A tipografia combina DM Sans para leitura e IBM Plex Mono apenas em trechos que realmente representam código/dados técnicos.
+```text
+src/
+├── components/
+├── sections/
+├── App.jsx
+└── styles.css
+```

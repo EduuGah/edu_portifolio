@@ -1,50 +1,21 @@
 import { motion } from "motion/react";
+import { GraduationCap, Code2, BriefcaseBusiness } from "lucide-react";
 
 export function About() {
   return (
-    <motion.section 
-      id="sobre" 
-      className="section about"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="section-heading">
-        <h2>Sobre mim</h2>
-      </div>
-      <div className="about-grid">
+    <motion.section id="sobre" className="section about" initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true,margin:"-70px"}} transition={{duration:.5}}>
+      <div className="section-heading about-heading"><p className="kicker">01 / Sobre</p><h2>Um pouco sobre mim.</h2></div>
+      <div className="about-grid-new">
         <div className="about-copy">
-          <p className="lead">
-            Estou no 4º semestre de Análise e Desenvolvimento de Sistemas
-            na UNIP. Meu foco atual é no front-end, mas com o objetivo de
-            dominar o back-end e me tornar um desenvolvedor Full Stack.
-          </p>
-          <p>
-            Antes disso, explorei back-end e bancos de dados em projetos
-            pessoais. Essa experiência me ajuda a pensar além da tela:
-            entendo de onde os dados vêm e como a interface depende deles.
-          </p>
-          <p>
-            No momento, dedico meu tempo a aprimorar minhas habilidades com
-            React, TypeScript e a arquitetura de interfaces, enquanto me
-            preparo para integrar sistemas mais complexos no futuro.
-          </p>
+          <p className="lead">Sou Carlos Eduardo, estudante de ADS na UNIP e desenvolvedor front-end em busca da minha primeira oportunidade profissional na área.</p>
+          <p>Programação virou a forma que encontrei de transformar ideias em projetos que realmente funcionam. Ao longo dos estudos passei por front-end, banco de dados e back-end, criando aplicações próprias para colocar cada conceito em prática.</p>
+          <p>Hoje meu foco principal é React e TypeScript. Também venho ampliando meus conhecimentos em APIs, Node.js e bancos de dados para conseguir participar de cada vez mais partes de um produto.</p>
         </div>
-        <motion.div 
-          className="about-photo-wrapper"
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          animate={{ y: [0, -15, 0] }}
-          viewport={{ once: true }}
-          transition={{ 
-            opacity: { duration: 0.6, delay: 0.2 },
-            x: { duration: 0.6, delay: 0.2 },
-            y: { repeat: Infinity, duration: 4, ease: "easeInOut" }
-          }}
-        >
-          <img src="https://github.com/EduuGah.png" alt="Carlos Eduardo" className="about-photo" />
-        </motion.div>
+        <div className="about-cards">
+          <article><GraduationCap size={21}/><div><span>Formação</span><strong>Análise e Desenvolvimento de Sistemas</strong><small>UNIP · 4º semestre</small></div></article>
+          <article><Code2 size={21}/><div><span>Foco</span><strong>Desenvolvimento Front-end</strong><small>React · TypeScript · JavaScript</small></div></article>
+          <article><BriefcaseBusiness size={21}/><div><span>Objetivo</span><strong>Primeira oportunidade em desenvolvimento</strong><small>Aberto a vagas júnior e estágio</small></div></article>
+        </div>
       </div>
     </motion.section>
   );
