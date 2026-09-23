@@ -119,9 +119,10 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 }
 
 .device-browser {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   height: 100%;
-  max-width: calc(100% - 84px);
+  aspect-ratio: 1280 / 800;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
@@ -167,9 +168,8 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 .device-phone {
   position: relative;
   flex: 0 0 auto;
-  width: 70px;
   height: 100%;
-  max-height: 152px;
+  aspect-ratio: 390 / 844;
   border-radius: 14px;
   overflow: hidden;
   background: #0b1013;
@@ -208,7 +208,7 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
   object-position: top;
 }
 
@@ -221,6 +221,15 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 }
 
 /* v7 — projetos em carrossel, um por vez, em destaque (mockup grande) */
+.projects {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.projects .section-heading {
+  margin-bottom: 30px;
+}
+
 .projects-carousel {
   display: flex;
   align-items: center;
@@ -236,12 +245,12 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 }
 
 .project-card-featured .project-image-container {
-  height: 320px;
+  height: 240px;
 }
 
 .project-card-featured .device-mockup {
-  padding: 22px;
-  gap: 16px;
+  padding: 16px;
+  gap: 14px;
 }
 
 .project-card-featured .device-browser {
@@ -296,36 +305,59 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   line-height: 1.6;
 }
 
-.device-screen-dots {
+.device-screen-arrow {
   position: absolute;
-  bottom: 6px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 5px;
   z-index: 3;
-}
-
-.device-phone .device-screen-dots {
-  bottom: 4px;
-}
-
-.device-screen-dot {
-  width: 5px;
-  height: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
   padding: 0;
-  border: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
   cursor: pointer;
-  transition: width 0.2s ease, border-radius 0.2s ease, background 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
-.device-screen-dot.active {
-  width: 14px;
-  border-radius: 3px;
+.device-screen-arrow:hover {
   background: var(--accent);
+  border-color: var(--accent);
+  color: #0b1715;
+}
+
+.device-screen-arrow-prev {
+  left: 5px;
+}
+
+.device-screen-arrow-next {
+  right: 5px;
+}
+
+.device-screen-arrow-icon-prev {
+  transform: rotate(180deg);
+}
+
+.device-phone .device-screen-arrow {
+  width: 16px;
+  height: 16px;
+}
+
+.device-screen-count {
+  position: absolute;
+  z-index: 3;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1px 6px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font: 600 10px "IBM Plex Mono", monospace;
+  letter-spacing: 0.02em;
 }
 
 .projects-carousel-arrow {
@@ -356,7 +388,7 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 26px;
+  margin-top: 16px;
 }
 
 .projects-carousel-dot {
@@ -378,12 +410,7 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 
 @media (max-width: 900px) {
   .project-card-featured .project-image-container {
-    height: 300px;
-  }
-
-  .project-card-featured .device-phone {
-    width: 96px;
-    max-height: 210px;
+    height: 220px;
   }
 }
 
@@ -398,7 +425,7 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   }
 
   .project-card-featured .project-image-container {
-    height: 300px;
+    height: auto;
   }
 
   .project-card-featured .device-mockup {
@@ -409,13 +436,14 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 
   .project-card-featured .device-browser {
     width: 100%;
-    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1280 / 800;
   }
 
   .project-card-featured .device-phone {
-    width: 84px;
-    height: 138px;
-    max-height: 138px;
+    width: auto;
+    height: 130px;
+    aspect-ratio: 390 / 844;
     flex: 0 0 auto;
     border-radius: 16px;
   }

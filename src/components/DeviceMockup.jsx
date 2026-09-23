@@ -1,23 +1,18 @@
 import { useState } from "react";
+import { Icon } from "./Icon";
 
-function ScreenDots({ count, index, onPick }) {
+function ScreenNav({ count, index, onPrev, onNext }) {
   if (count <= 1) return null;
   return (
-    <div className="device-screen-dots">
-      {Array.from({ length: count }).map((_, i) => (
-        <button
-          key={i}
-          type="button"
-          className={`device-screen-dot${i === index ? " active" : ""}`}
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            onPick(i);
-          }}
-          aria-label={`Imagem ${i + 1} de ${count}`}
-        />
-      ))}
-    </div>
+    <>
+      <button type="button" className="device-screen-arrow device-screen-arrow-prev" onClick={onPrev} aria-label="Tela anterior">
+        <Icon name="arrow" size={13} className="device-screen-arrow-icon-prev" />
+      </button>
+      <button type="button" className="device-screen-arrow device-screen-arrow-next" onClick={onNext} aria-label="Próxima tela">
+        <Icon name="arrow" size={13} />
+      </button>
+      <span className="device-screen-count">{index + 1}/{count}</span>
+    </>
   );
 }
 
@@ -26,6 +21,12 @@ export function DeviceMockup({ desktopImages, mobileImages, alt, demo }) {
   const mobiles = mobileImages ?? [];
   const [desktopIndex, setDesktopIndex] = useState(0);
   const [mobileIndex, setMobileIndex] = useState(0);
+
+  const step = (setIndex, count, dir) => (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIndex((i) => (i + dir + count) % count);
+  };
 
   return (
     <a className="project-image-container device-mockup" href={demo} target="_blank" rel="noreferrer" aria-label={alt}>
@@ -38,10 +39,15 @@ export function DeviceMockup({ desktopImages, mobileImages, alt, demo }) {
         <div className="device-browser-screen">
           <img
             src={desktops[desktopIndex]}
-            alt={`${alt} — versão desktop, imagem ${desktopIndex + 1} de ${desktops.length}`}
+            alt={`${alt} — versão desktop, tela ${desktopIndex + 1} de ${desktops.length}`}
             loading="lazy"
           />
-          <ScreenDots count={desktops.length} index={desktopIndex} onPick={setDesktopIndex} />
+          <ScreenNav
+            count={desktops.length}
+            index={desktopIndex}
+            onPrev={step(setDesktopIndex, desktops.length, -1)}
+            onNext={step(setDesktopIndex, desktops.length, 1)}
+          />
         </div>
       </div>
       <div className="device-phone">
@@ -49,10 +55,15 @@ export function DeviceMockup({ desktopImages, mobileImages, alt, demo }) {
         <div className="device-phone-screen">
           <img
             src={mobiles[mobileIndex]}
-            alt={`${alt} — versão mobile, imagem ${mobileIndex + 1} de ${mobiles.length}`}
+            alt={`${alt} — versão mobile, tela ${mobileIndex + 1} de ${mobiles.length}`}
             loading="lazy"
           />
-          <ScreenDots count={mobiles.length} index={mobileIndex} onPick={setMobileIndex} />
+          <ScreenNav
+            count={mobiles.length}
+            index={mobileIndex}
+            onPrev={step(setMobileIndex, mobiles.length, -1)}
+            onNext={step(setMobileIndex, mobiles.length, 1)}
+          />
         </div>
       </div>
     </a>
