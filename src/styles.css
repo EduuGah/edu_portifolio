@@ -124,16 +124,30 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   gap: 16px;
 }
 
-.projects-carousel-grid {
+.projects-carousel-viewport {
   flex: 1 1 auto;
   min-width: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  overflow: hidden;
+}
+
+.projects-carousel-track {
+  display: flex;
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.projects-carousel-track.no-transition {
+  transition: none;
+}
+
+.carousel-slide {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 0 9px;
 }
 
 .project-card-featured {
   min-width: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
   border-radius: 16px;
@@ -141,19 +155,20 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 
 .project-image-container.device-mockup {
   position: relative;
-  height: auto;
+  height: 230px;
   min-height: 0;
   border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 22px 18px 30px;
+  padding: 0 18px;
+  overflow: hidden;
   background: linear-gradient(160deg, var(--panel2), var(--panel));
 }
 
 .device-laptop {
   position: relative;
-  width: 80%;
+  height: 84%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -161,7 +176,7 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 
 .device-laptop-screen {
   position: relative;
-  width: 100%;
+  height: calc(100% - 9px);
   aspect-ratio: 16 / 9;
   display: flex;
   flex-direction: column;
@@ -218,9 +233,10 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 .device-phone {
   position: absolute;
   z-index: 2;
-  right: 4%;
-  bottom: -10px;
-  width: 27%;
+  right: 7%;
+  bottom: 5%;
+  height: 82%;
+  width: auto;
   aspect-ratio: 390 / 844;
   border-radius: 13px;
   overflow: hidden;
@@ -290,59 +306,60 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   overflow: hidden;
 }
 
-.device-screen-arrow {
+.device-screen-nav {
   position: absolute;
-  z-index: 3;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
+  z-index: 4;
+  left: 4px;
+  bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.device-screen-nav button {
+  width: 13px;
+  height: 13px;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 0;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(255, 255, 255, 0.14);
   color: #fff;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease;
 }
 
-.device-screen-arrow:hover {
+.device-screen-nav button:hover {
   background: var(--accent);
-  border-color: var(--accent);
   color: #0b1715;
-}
-
-.device-screen-arrow-prev {
-  left: 4px;
-}
-
-.device-screen-arrow-next {
-  right: 4px;
 }
 
 .device-screen-arrow-icon-prev {
   transform: rotate(180deg);
 }
 
-.device-phone .device-screen-arrow {
-  width: 14px;
-  height: 14px;
+.device-screen-nav span {
+  font: 600 8px "IBM Plex Mono", monospace;
+  letter-spacing: 0.02em;
+  color: #fff;
+  padding: 0 1px;
 }
 
-.device-screen-count {
-  position: absolute;
-  z-index: 3;
+.device-phone-screen .device-screen-nav {
+  left: 3px;
   bottom: 3px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 1px 5px;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  font: 600 9px "IBM Plex Mono", monospace;
-  letter-spacing: 0.02em;
+  padding: 1px 4px;
+  gap: 3px;
+}
+
+.device-phone-screen .device-screen-nav button {
+  width: 10px;
+  height: 10px;
 }
 
 .projects-carousel-arrow {
@@ -393,16 +410,6 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   background: var(--accent);
 }
 
-@media (max-width: 900px) {
-  .projects-carousel-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .device-laptop {
-    width: 70%;
-  }
-}
-
 @media (max-width: 620px) {
   .projects-carousel {
     gap: 6px;
@@ -413,8 +420,12 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
     height: 34px;
   }
 
-  .device-laptop {
-    width: 74%;
+  .carousel-slide {
+    padding: 0 5px;
+  }
+
+  .project-image-container.device-mockup {
+    height: 220px;
   }
 
   .project-card-featured .project-content {

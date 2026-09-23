@@ -4,15 +4,15 @@ import { Icon } from "./Icon";
 function ScreenNav({ count, index, onPrev, onNext }) {
   if (count <= 1) return null;
   return (
-    <>
-      <button type="button" className="device-screen-arrow device-screen-arrow-prev" onClick={onPrev} aria-label="Tela anterior">
-        <Icon name="arrow" size={12} className="device-screen-arrow-icon-prev" />
+    <div className="device-screen-nav">
+      <button type="button" onClick={onPrev} aria-label="Tela anterior">
+        <Icon name="arrow" size={9} className="device-screen-arrow-icon-prev" />
       </button>
-      <button type="button" className="device-screen-arrow device-screen-arrow-next" onClick={onNext} aria-label="Próxima tela">
-        <Icon name="arrow" size={12} />
+      <span>{index + 1}/{count}</span>
+      <button type="button" onClick={onNext} aria-label="Próxima tela">
+        <Icon name="arrow" size={9} />
       </button>
-      <span className="device-screen-count">{index + 1}/{count}</span>
-    </>
+    </div>
   );
 }
 
