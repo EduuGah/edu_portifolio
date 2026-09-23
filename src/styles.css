@@ -155,7 +155,7 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 
 .project-image-container.device-mockup {
   position: relative;
-  height: 230px;
+  height: 290px;
   min-height: 0;
   border-bottom: 1px solid var(--line);
   display: flex;
@@ -276,13 +276,6 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   object-position: top;
 }
 
-.device-browser-screen img {
-  transition: transform 0.5s;
-}
-
-.project-card:hover .device-browser-screen img {
-  transform: scale(1.04);
-}
 
 .project-card-featured .project-content {
   padding: 20px 24px;
@@ -425,7 +418,24 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   }
 
   .project-image-container.device-mockup {
-    height: 220px;
+    height: auto;
+    padding: 26px 18px 36px;
+  }
+
+  .device-laptop {
+    height: auto;
+    width: 76%;
+  }
+
+  .device-laptop-screen {
+    height: auto;
+    width: 100%;
+  }
+
+  .device-phone {
+    height: auto;
+    width: 30%;
+    bottom: -8px;
   }
 
   .project-card-featured .project-content {
