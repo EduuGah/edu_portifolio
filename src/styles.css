@@ -178,8 +178,6 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   position: relative;
   height: calc(100% - 9px);
   aspect-ratio: 1280 / 800;
-  display: flex;
-  flex-direction: column;
   border-radius: 8px 8px 3px 3px;
   overflow: hidden;
   background: #0b1013;
@@ -197,12 +195,17 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 }
 
 .device-browser-bar {
-  flex: 0 0 16px;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
   display: flex;
   align-items: center;
   gap: 5px;
   padding: 0 8px;
-  background: #161f24;
+  background: rgba(22, 31, 36, 0.88);
 }
 
 .device-dot {
@@ -224,8 +227,8 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 }
 
 .device-browser-screen {
-  position: relative;
-  flex: 1 1 auto;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
   background: #0b1013;
 }
