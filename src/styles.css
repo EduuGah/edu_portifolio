@@ -155,7 +155,7 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 
 .project-image-container.device-mockup {
   position: relative;
-  height: 290px;
+  height: 360px;
   min-height: 0;
   border-bottom: 1px solid var(--line);
   display: flex;
@@ -177,7 +177,7 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 .device-laptop-screen {
   position: relative;
   height: calc(100% - 9px);
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1280 / 800;
   display: flex;
   flex-direction: column;
   border-radius: 8px 8px 3px 3px;
