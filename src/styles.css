@@ -155,20 +155,20 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 
 .project-image-container.device-mockup {
   position: relative;
-  height: 360px;
+  height: auto;
   min-height: 0;
   border-bottom: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 18px;
+  padding: 26px 26px 36px;
   overflow: hidden;
   background: linear-gradient(160deg, var(--panel2), var(--panel));
 }
 
 .device-laptop {
   position: relative;
-  height: 84%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -176,7 +176,7 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 
 .device-laptop-screen {
   position: relative;
-  height: calc(100% - 9px);
+  width: 100%;
   aspect-ratio: 1280 / 800;
   border-radius: 8px 8px 3px 3px;
   overflow: hidden;
@@ -186,8 +186,8 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
 }
 
 .device-laptop-base {
-  width: 116%;
-  height: 9px;
+  width: 108%;
+  height: 10px;
   margin-top: -1px;
   background: linear-gradient(180deg, #1c262b, #0c1114);
   border-radius: 0 0 7px 7px;
@@ -233,43 +233,7 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   background: #0b1013;
 }
 
-.device-phone {
-  position: absolute;
-  z-index: 2;
-  right: 7%;
-  bottom: 5%;
-  height: 82%;
-  width: auto;
-  aspect-ratio: 390 / 844;
-  border-radius: 13px;
-  overflow: hidden;
-  background: #0b1013;
-  border: 2px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 14px 28px -12px rgba(0, 0, 0, 0.6);
-}
-
-.device-phone-notch {
-  position: absolute;
-  z-index: 2;
-  top: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 16px;
-  height: 3px;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.device-phone-screen {
-  position: absolute;
-  inset: 2px;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #0b1013;
-}
-
-.device-browser-screen img,
-.device-phone-screen img {
+.device-browser-screen img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -346,18 +310,6 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   padding: 0 1px;
 }
 
-.device-phone-screen .device-screen-nav {
-  left: 3px;
-  bottom: 3px;
-  padding: 1px 4px;
-  gap: 3px;
-}
-
-.device-phone-screen .device-screen-nav button {
-  width: 10px;
-  height: 10px;
-}
-
 .projects-carousel-arrow {
   flex: 0 0 auto;
   width: 42px;
@@ -421,24 +373,7 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   }
 
   .project-image-container.device-mockup {
-    height: auto;
-    padding: 26px 18px 36px;
-  }
-
-  .device-laptop {
-    height: auto;
-    width: 76%;
-  }
-
-  .device-laptop-screen {
-    height: auto;
-    width: 100%;
-  }
-
-  .device-phone {
-    height: auto;
-    width: 30%;
-    bottom: -8px;
+    padding: 20px 16px 28px;
   }
 
   .project-card-featured .project-content {

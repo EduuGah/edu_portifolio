@@ -52,7 +52,7 @@ export function Projects(){
         <div className={`projects-carousel-track${animated?"":" no-transition"}`} style={{width:`${(N/perPage)*100}%`,transform:`translateX(-${trackIndex*SLIDE}%)`}} onTransitionEnd={handleTransitionEnd}>
           {track.map((p,i)=><div className="carousel-slide" key={`${p.name}-${i}`} style={{flex:`0 0 ${SLIDE}%`}}>
             <article className="project-card project-card-featured">
-              <DeviceMockup desktopImages={p.desktopImages} mobileImages={p.mobileImages} alt={`Tela do projeto ${p.name}`} demo={p.demo}/>
+              <DeviceMockup desktopImages={p.desktopImages} alt={`Tela do projeto ${p.name}`} demo={p.demo}/>
               <div className="project-content">
                 <div className="project-title-row"><div><h3>{p.name}</h3><strong className="project-subtitle">{p.subtitle}</strong></div></div>
                 <p>{p.description}</p>

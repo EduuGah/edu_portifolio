@@ -16,11 +16,9 @@ function ScreenNav({ count, index, onPrev, onNext }) {
   );
 }
 
-export function DeviceMockup({ desktopImages, mobileImages, alt, demo }) {
+export function DeviceMockup({ desktopImages, alt, demo }) {
   const desktops = desktopImages ?? [];
-  const mobiles = mobileImages ?? [];
   const [desktopIndex, setDesktopIndex] = useState(0);
-  const [mobileIndex, setMobileIndex] = useState(0);
 
   const step = (setIndex, count, dir) => (e) => {
     e.preventDefault();
@@ -38,18 +36,11 @@ export function DeviceMockup({ desktopImages, mobileImages, alt, demo }) {
             <span className="device-dot device-dot-green" />
           </div>
           <div className="device-browser-screen">
-            <img src={desktops[desktopIndex]} alt={`${alt} — versão desktop, tela ${desktopIndex + 1} de ${desktops.length}`} loading="lazy" />
+            <img src={desktops[desktopIndex]} alt={`${alt} — tela ${desktopIndex + 1} de ${desktops.length}`} loading="lazy" />
             <ScreenNav count={desktops.length} index={desktopIndex} onPrev={step(setDesktopIndex, desktops.length, -1)} onNext={step(setDesktopIndex, desktops.length, 1)} />
           </div>
         </div>
         <div className="device-laptop-base" />
-      </div>
-      <div className="device-phone">
-        <div className="device-phone-notch" />
-        <div className="device-phone-screen">
-          <img src={mobiles[mobileIndex]} alt={`${alt} — versão mobile, tela ${mobileIndex + 1} de ${mobiles.length}`} loading="lazy" />
-          <ScreenNav count={mobiles.length} index={mobileIndex} onPrev={step(setMobileIndex, mobiles.length, -1)} onNext={step(setMobileIndex, mobiles.length, 1)} />
-        </div>
       </div>
     </a>
   );
