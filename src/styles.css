@@ -196,6 +196,11 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   overflow: hidden;
 }
 
+.device-browser-screen,
+.device-phone-screen {
+  background: #0b1013;
+}
+
 .device-browser-screen img,
 .device-phone-screen img {
   position: absolute;
@@ -203,7 +208,7 @@ canvas{opacity:.48}@media(prefers-reduced-motion:reduce){html{scroll-behavior:au
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   object-position: top;
 }
 
