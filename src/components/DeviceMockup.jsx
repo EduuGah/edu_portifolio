@@ -6,10 +6,10 @@ function ScreenNav({ count, index, onPrev, onNext }) {
   return (
     <>
       <button type="button" className="device-screen-arrow device-screen-arrow-prev" onClick={onPrev} aria-label="Tela anterior">
-        <Icon name="arrow" size={13} className="device-screen-arrow-icon-prev" />
+        <Icon name="arrow" size={12} className="device-screen-arrow-icon-prev" />
       </button>
       <button type="button" className="device-screen-arrow device-screen-arrow-next" onClick={onNext} aria-label="Próxima tela">
-        <Icon name="arrow" size={13} />
+        <Icon name="arrow" size={12} />
       </button>
       <span className="device-screen-count">{index + 1}/{count}</span>
     </>
@@ -30,40 +30,25 @@ export function DeviceMockup({ desktopImages, mobileImages, alt, demo }) {
 
   return (
     <a className="project-image-container device-mockup" href={demo} target="_blank" rel="noreferrer" aria-label={alt}>
-      <div className="device-browser">
-        <div className="device-browser-bar">
-          <span className="device-dot device-dot-red" />
-          <span className="device-dot device-dot-yellow" />
-          <span className="device-dot device-dot-green" />
+      <div className="device-laptop">
+        <div className="device-laptop-screen">
+          <div className="device-browser-bar">
+            <span className="device-dot device-dot-red" />
+            <span className="device-dot device-dot-yellow" />
+            <span className="device-dot device-dot-green" />
+          </div>
+          <div className="device-browser-screen">
+            <img src={desktops[desktopIndex]} alt={`${alt} — versão desktop, tela ${desktopIndex + 1} de ${desktops.length}`} loading="lazy" />
+            <ScreenNav count={desktops.length} index={desktopIndex} onPrev={step(setDesktopIndex, desktops.length, -1)} onNext={step(setDesktopIndex, desktops.length, 1)} />
+          </div>
         </div>
-        <div className="device-browser-screen">
-          <img
-            src={desktops[desktopIndex]}
-            alt={`${alt} — versão desktop, tela ${desktopIndex + 1} de ${desktops.length}`}
-            loading="lazy"
-          />
-          <ScreenNav
-            count={desktops.length}
-            index={desktopIndex}
-            onPrev={step(setDesktopIndex, desktops.length, -1)}
-            onNext={step(setDesktopIndex, desktops.length, 1)}
-          />
-        </div>
+        <div className="device-laptop-base" />
       </div>
       <div className="device-phone">
         <div className="device-phone-notch" />
         <div className="device-phone-screen">
-          <img
-            src={mobiles[mobileIndex]}
-            alt={`${alt} — versão mobile, tela ${mobileIndex + 1} de ${mobiles.length}`}
-            loading="lazy"
-          />
-          <ScreenNav
-            count={mobiles.length}
-            index={mobileIndex}
-            onPrev={step(setMobileIndex, mobiles.length, -1)}
-            onNext={step(setMobileIndex, mobiles.length, 1)}
-          />
+          <img src={mobiles[mobileIndex]} alt={`${alt} — versão mobile, tela ${mobileIndex + 1} de ${mobiles.length}`} loading="lazy" />
+          <ScreenNav count={mobiles.length} index={mobileIndex} onPrev={step(setMobileIndex, mobiles.length, -1)} onNext={step(setMobileIndex, mobiles.length, 1)} />
         </div>
       </div>
     </a>
