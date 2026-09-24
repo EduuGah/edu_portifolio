@@ -198,8 +198,17 @@ code {
 /* Projetos --------------------------------------------------------------- */
 .projects { padding: 96px 0; border-top: 1px solid var(--line); }
 
-.project-index { display: flex; flex-wrap: wrap; gap: 8px; margin: -12px 0 40px; }
-.project-index a {
+/* Carrossel: um projeto por vez. */
+.carousel-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: -12px 0 20px;
+}
+.project-index { display: flex; flex-wrap: wrap; gap: 8px; }
+.project-index button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -207,17 +216,37 @@ code {
   border-radius: 999px;
   background: var(--surface);
   border: 1px solid var(--line);
+  color: var(--muted);
   font-size: 14px;
   font-weight: 600;
-  transition: border-color 0.2s;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
 }
-.project-index a:hover { border-color: var(--tint); }
+.project-index button:hover { color: var(--ink); }
+.project-index button.is-active { color: var(--ink); border-color: var(--tint); }
+.carousel-arrows { display: flex; align-items: center; gap: 10px; }
+.carousel-arrows .mono { color: var(--muted); font-size: 13px; min-width: 38px; text-align: center; }
+.carousel-arrows button {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.carousel-arrows button:hover { border-color: var(--accent); color: var(--accent); }
+.carousel-viewport { overflow: hidden; transition: height 0.35s ease; }
+.carousel-track { display: flex; align-items: flex-start; transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1); }
+.carousel-track.no-transition { transition: none; }
+.carousel-slide { flex: 0 0 100%; min-width: 0; }
 .project-dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: var(--tint); flex: 0 0 auto; }
 
-.project-list { display: grid; gap: 72px; }
 
 .project {
-  scroll-margin-top: 84px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 22px;
@@ -695,7 +724,7 @@ canvas { opacity: 0.48; }
   .projects,
   .about,
   .skills { padding: 72px 0; }
-  .project-list { gap: 40px; }
+  .carousel-arrows button { width: 36px; height: 36px; }
   .project { padding: 16px; border-radius: 18px; }
   .project-head { align-items: flex-start; }
   .stage { margin: 0 -4px; }

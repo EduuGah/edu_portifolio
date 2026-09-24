@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 export function Lightbox({ images, index, onClose, onChange, title }) {
@@ -23,7 +24,9 @@ export function Lightbox({ images, index, onClose, onChange, title }) {
     };
   }, [index, count, onClose, onChange]);
 
-  return (
+  // Portal: dentro do carrossel há um transform, que prenderia o `fixed`
+  // à trilha em vez da janela.
+  return createPortal(
     <div className="lightbox" role="dialog" aria-modal="true" aria-label={`${title}: ${shot.caption}`} onClick={onClose}>
       <figure className="lightbox-figure" onClick={(e) => e.stopPropagation()}>
         <img src={shot.src} alt={`${title}: ${shot.caption}`} />
@@ -45,6 +48,7 @@ export function Lightbox({ images, index, onClose, onChange, title }) {
           </button>
         </>
       )}
-    </div>
+    </div>,
+    document.body
   );
 }

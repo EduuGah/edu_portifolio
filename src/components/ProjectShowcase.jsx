@@ -83,7 +83,7 @@ export function ProjectShowcase({ project }) {
   const shots = view === "desktop" ? project.desktop : project.mobile;
 
   return (
-    <article className="project" id={`projeto-${project.slug}`} style={{ "--tint": project.color }}>
+    <article className="project" style={{ "--tint": project.color }}>
       <header className="project-head">
         <div>
           <h3><span className="project-dot" aria-hidden="true" />{project.name}</h3>
