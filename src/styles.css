@@ -666,6 +666,9 @@ code {
 }
 .footer a:hover { color: var(--ink); }
 
+/* Partículas do fundo, discretas atrás do conteúdo. */
+canvas { opacity: 0.48; }
+
 /* Responsivo ------------------------------------------------------------- */
 @media (max-width: 960px) {
   .hero { grid-template-columns: 1fr; gap: 40px; padding: 64px 0 72px; }
@@ -689,7 +692,6 @@ code {
   .hero-card { display: grid; grid-template-columns: 76px 1fr; gap: 0 14px; align-items: center; max-width: none; }
   .hero-photo { border-radius: 10px; }
   .hero-card-meta { flex-direction: column; gap: 4px; padding: 0; }
-  .hero-card .key-tag { grid-column: 1 / -1; margin-top: 12px; }
   .projects,
   .about,
   .skills { padding: 72px 0; }

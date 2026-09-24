@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowDown, KeyRound, MapPin } from "lucide-react";
+import { ArrowDown, MapPin } from "lucide-react";
 import { Icon } from "../components/Icon";
 
 export function Hero() {
@@ -24,10 +24,6 @@ export function Hero() {
         <div className="hero-card-meta">
           <p><span className="status-dot" aria-hidden="true" /> Aberto a estágio e vagas júnior</p>
           <p className="muted"><MapPin size={14} aria-hidden="true" /> Brasil</p>
-        </div>
-        <div className="key-tag">
-          <KeyRound size={16} aria-hidden="true" />
-          <p>Todos os projetos entram com <code>admin</code> e senha <code>admin</code>, sem criar conta.</p>
         </div>
       </motion.aside>
     </section>

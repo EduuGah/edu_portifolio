@@ -6,6 +6,7 @@ import { Skills } from "./sections/Skills";
 import { Projects } from "./sections/Projects";
 import { Contact } from "./sections/Contact";
 import { Footer } from "./components/Footer";
+import { ParticlesBackground } from "./components/ParticlesBackground";
 
 export default function App() {
   const [active, setActive] = useState("inicio");
@@ -38,15 +39,18 @@ export default function App() {
 
   return (
     <>
+      <ParticlesBackground />
       <Navigation active={active} onNavClick={handleNavClick} />
-      <main>
+      <main style={{ position: "relative" }}>
         <Hero />
         <Projects />
         <About />
         <Skills />
         <Contact />
       </main>
-      <Footer />
+      <div style={{ position: "relative" }}>
+        <Footer />
+      </div>
     </>
   );
 }
