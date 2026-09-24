@@ -38,21 +38,21 @@ const groups = [
 
 function SkillBadge({ item }) {
   const SkillIcon = skills[item] || Code2;
-  return <span className="skill-badge skill-badge-icon"><SkillIcon size={15} strokeWidth={1.9} aria-hidden="true" />{item}</span>;
+  return <span className="skill-badge"><SkillIcon size={15} strokeWidth={1.9} aria-hidden="true" />{item}</span>;
 }
 
 export function Skills() {
   return (
     <motion.section id="skills" className="section skills" initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:.5}}>
-      <div className="section-heading skills-heading">
+      <div className="section-heading">
         <p className="kicker">Skills</p>
         <h2>Tecnologias e ferramentas.</h2>
         <p>Uma visão rápida da stack que utilizo e das tecnologias com as quais já tive contato em projetos.</p>
       </div>
-      <div className="skills-grid skills-grid-clear">
+      <div className="skills-grid">
         {groups.map(({icon: Icon, title, description, items}) => (
-          <article className="skill-group skill-group-clear" key={title}>
-            <div className="skill-title-clear"><span><Icon size={20}/></span><div><h3>{title}</h3><p>{description}</p></div></div>
+          <article className="skill-group" key={title}>
+            <div className="skill-title"><span aria-hidden="true"><Icon size={19}/></span><div><h3>{title}</h3><p>{description}</p></div></div>
             <div className="skills-badge-list">{items.map(item => <SkillBadge item={item} key={item}/>)}</div>
           </article>
         ))}

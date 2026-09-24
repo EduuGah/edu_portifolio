@@ -1,30 +1,35 @@
 import { motion } from "motion/react";
+import { ArrowDown, KeyRound, MapPin } from "lucide-react";
 import { Icon } from "../components/Icon";
-import { ArrowDownRight, MapPin } from "lucide-react";
 
 export function Hero() {
   return (
-    <section id="inicio" className="hero section">
-      <motion.div className="hero-copy" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .5 }}>
-        <p className="eyebrow"><span /> Disponível para oportunidades</p>
-        <h1>Carlos Eduardo.</h1>
-        <p className="hero-role">Front-end Developer</p>
-        <p className="hero-text">Desenvolvedor e estudante de Análise e Desenvolvimento de Sistemas, com foco em React e TypeScript.</p>
+    <section id="inicio" className="section hero">
+      <motion.div className="hero-copy" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+        <p className="kicker">Desenvolvedor front-end · React e TypeScript</p>
+        <h1>Carlos<br />Eduardo<span className="h1-dot">.</span></h1>
+        <p className="hero-text">
+          Estudante de Análise e Desenvolvimento de Sistemas. Construo aplicações completas,
+          da interface ao banco de dados, e deixo cada uma aberta para você testar.
+        </p>
         <div className="hero-actions">
-          <a className="button button-primary" href="#projetos">Ver projetos <ArrowDownRight size={17}/></a>
-          <a className="button button-secondary" href="https://github.com/EduuGah" target="_blank" rel="noreferrer"><Icon name="github" size={18}/> GitHub</a>
-        </div>
-        <div className="social-row">
-          <a href="https://www.linkedin.com/in/carlos-eduardo-863015377/" target="_blank" rel="noreferrer"><Icon name="linkedin" size={17}/> LinkedIn</a>
-          <a href="https://www.instagram.com/eduugah/" target="_blank" rel="noreferrer"><Icon name="instagram" size={17}/> Instagram</a>
-          <span><MapPin size={16}/> Brasil</span>
+          <a className="button button-primary" href="#projetos">Ver projetos <ArrowDown size={17} aria-hidden="true" /></a>
+          <a className="button button-ghost" href="https://github.com/EduuGah" target="_blank" rel="noreferrer"><Icon name="github" size={17} /> GitHub</a>
+          <a className="button button-ghost" href="https://www.linkedin.com/in/carlos-eduardo-863015377/" target="_blank" rel="noreferrer"><Icon name="linkedin" size={17} /> LinkedIn</a>
         </div>
       </motion.div>
-      <motion.div className="hero-photo-wrap" initial={{opacity:0,scale:.97,y:10}} animate={{opacity:1,scale:1,y:[0,-7,0]}} transition={{opacity:{duration:.55},scale:{duration:.55},y:{duration:5.5,repeat:Infinity,ease:"easeInOut",delay:.7}}}>
-        <div className="hero-photo-frame">
-          <img src="https://github.com/EduuGah.png" alt="Carlos Eduardo" className="hero-photo" />
+
+      <motion.aside className="hero-card" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.12 }}>
+        <img src="https://github.com/EduuGah.png" alt="Foto de Carlos Eduardo" className="hero-photo" width="460" height="460" />
+        <div className="hero-card-meta">
+          <p><span className="status-dot" aria-hidden="true" /> Aberto a estágio e vagas júnior</p>
+          <p className="muted"><MapPin size={14} aria-hidden="true" /> Brasil</p>
         </div>
-      </motion.div>
+        <div className="key-tag">
+          <KeyRound size={16} aria-hidden="true" />
+          <p>Todos os projetos entram com <code>admin</code> e senha <code>admin</code>, sem criar conta.</p>
+        </div>
+      </motion.aside>
     </section>
   );
 }
