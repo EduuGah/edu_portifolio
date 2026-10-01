@@ -111,13 +111,11 @@ export const projects = [
     tryIt: [
       "Como admin, veja o dashboard e a lista de funcionários por departamento.",
       "Como gestora de RH, inscreva alguém num treinamento e acompanhe o progresso.",
-      "No app, entre como funcionária e avance o progresso de um treinamento.",
+      "No app (pim-vi.vercel.app/app), entre como funcionária e avance o progresso de um treinamento.",
     ],
     stack: ["C#", ".NET 8", "ASP.NET Core", "EF Core", "SQLite", "Flutter"],
     repo: "https://github.com/EduuGah/Pim-VI",
-    demo: null,
-    localHost: "localhost:5080",
-    accountsNote: "Ao rodar o projeto (um comando, explicado no README):",
+    demo: "https://pim-vi.vercel.app/",
     accounts: [
       { role: "Admin", user: "admin@pluralrh.com", password: "Admin@123" },
       { role: "Gestora (RH)", user: "carla.mendes@pluralrh.com", password: "Gestor@123" },
