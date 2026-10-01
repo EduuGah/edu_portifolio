@@ -101,4 +101,29 @@ export const projects = [
     desktop: shots("coupleflow", "desktop", ["Início do casal", "Lista de planos"]),
     mobile: shots("coupleflow", "mobile", ["Sorteio de plano", "Notificações", "Novo plano"]),
   },
+  {
+    slug: "pluralrh",
+    name: "PluralRH",
+    subtitle: "RH, treinamentos e diversidade (PIM VI)",
+    color: "#3b6fc4",
+    summary:
+      "Projeto integrado da faculdade: uma empresa acompanha funcionários, treinamentos e ações de diversidade e inclusão num sistema só. O RH usa um painel web com indicadores de quem concluiu, quem está pendente e quem nem começou; o funcionário usa um app que mostra os próprios treinamentos e funciona sem internet, enviando as alterações quando a conexão volta. A API em .NET cuida do login com JWT (com logout que revoga o token), das permissões por perfil e das regras, que também são garantidas no banco.",
+    tryIt: [
+      "Como admin, veja o dashboard e a lista de funcionários por departamento.",
+      "Como gestora de RH, inscreva alguém num treinamento e acompanhe o progresso.",
+      "No app, entre como funcionária e avance o progresso de um treinamento.",
+    ],
+    stack: ["C#", ".NET 8", "ASP.NET Core", "EF Core", "SQLite", "Flutter"],
+    repo: "https://github.com/EduuGah/Pim-VI",
+    demo: null,
+    localHost: "localhost:5080",
+    accountsNote: "Ao rodar o projeto (um comando, explicado no README):",
+    accounts: [
+      { role: "Admin", user: "admin@pluralrh.com", password: "Admin@123" },
+      { role: "Gestora (RH)", user: "carla.mendes@pluralrh.com", password: "Gestor@123" },
+      { role: "Funcionária (app)", user: "ana.souza@pluralrh.com", password: "Func@123" },
+    ],
+    desktop: shots("pluralrh", "desktop", ["Dashboard do RH", "Funcionários", "Detalhe do treinamento", "Participações", "Diversidade e inclusão"]),
+    mobile: shots("pluralrh", "mobile", ["Início do funcionário", "Meus treinamentos", "Progresso do treinamento", "Modo offline"]),
+  },
 ];

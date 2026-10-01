@@ -41,7 +41,7 @@ function DesktopStage({ project, index, onIndex, onOpen }) {
       <div className="browser">
         <div className="browser-bar" aria-hidden="true">
           <span className="browser-dots"><i /><i /><i /></span>
-          <span className="browser-url">{hostOf(project.demo)}</span>
+          <span className="browser-url">{project.demo ? hostOf(project.demo) : project.localHost}</span>
         </div>
         <button type="button" className="browser-screen" onClick={() => onOpen(index)} aria-label={`Ampliar tela: ${shot.caption}`}>
           <img src={shot.src} alt={`${project.name}: ${shot.caption}`} loading="lazy" width="1365" height="640" />
@@ -131,17 +131,25 @@ export function ProjectShowcase({ project }) {
           </ul>
         </div>
         <div className="project-try">
-          <DemoAccess accounts={project.accounts} />
+          <DemoAccess accounts={project.accounts} note={project.accountsNote} />
           <ul className="try-list">
             {project.tryIt.map((t) => <li key={t}>{t}</li>)}
           </ul>
           <div className="project-links">
-            <a className="button button-primary" href={project.demo} target="_blank" rel="noreferrer">
-              Abrir o {project.name} <ArrowUpRight size={17} aria-hidden="true" />
-            </a>
-            <a className="button button-ghost" href={project.repo} target="_blank" rel="noreferrer">
-              <Icon name="github" size={17} /> Código
-            </a>
+            {project.demo ? (
+              <>
+                <a className="button button-primary" href={project.demo} target="_blank" rel="noreferrer">
+                  Abrir o {project.name} <ArrowUpRight size={17} aria-hidden="true" />
+                </a>
+                <a className="button button-ghost" href={project.repo} target="_blank" rel="noreferrer">
+                  <Icon name="github" size={17} /> Código
+                </a>
+              </>
+            ) : (
+              <a className="button button-primary" href={project.repo} target="_blank" rel="noreferrer">
+                <Icon name="github" size={17} /> Ver o código e como rodar <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
+            )}
           </div>
         </div>
       </div>

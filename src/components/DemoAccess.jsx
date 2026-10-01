@@ -22,10 +22,11 @@ function CopyValue({ value, label }) {
   );
 }
 
-export function DemoAccess({ accounts }) {
+export function DemoAccess({ accounts, note }) {
   return (
     <div className="demo-access">
       <p className="demo-access-title"><KeyRound size={15} aria-hidden="true" /> Teste sem criar conta</p>
+      {note && <p className="demo-access-note">{note}</p>}
       <table>
         <thead>
           <tr><th scope="col">Perfil</th><th scope="col">Usuário</th><th scope="col">Senha</th></tr>

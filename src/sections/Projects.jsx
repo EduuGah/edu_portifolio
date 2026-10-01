@@ -58,7 +58,7 @@ export function Projects() {
     <section id="projetos" className="section projects">
       <div className="section-heading">
         <p className="kicker">Projetos</p>
-        <h2>Quatro produtos completos, abertos para você testar.</h2>
+        <h2>Projetos completos, abertos para você testar.</h2>
         <p>
           Cada um tem login, banco de dados e regras de negócio de verdade. Use as contas de
           teste de cada projeto para entrar sem cadastro.

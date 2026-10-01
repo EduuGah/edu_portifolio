@@ -509,6 +509,7 @@ code {
   font-weight: 700;
   font-size: 14px;
 }
+.demo-access-note { margin: -2px 0 8px; color: #b59a5e; font-size: 13px; }
 .demo-access table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .demo-access th,
 .demo-access td { padding: 6px 0; text-align: left; }
@@ -704,7 +705,7 @@ canvas { opacity: 0.48; }
   .hero-card { max-width: 420px; }
   .project-body,
   .about-grid,
-  .contact-panel { grid-template-columns: 1fr; gap: 32px; }
+  .contact-panel { grid-template-columns: minmax(0, 1fr); gap: 32px; }
 }
 
 @media (max-width: 720px) {
@@ -745,6 +746,13 @@ canvas { opacity: 0.48; }
   .phones::-webkit-scrollbar { display: none; }
   .phone { flex: 0 0 64%; scroll-snap-align: center; }
   .thumbs button { width: 64px; }
+  /* Tabela de contas vira uma lista: e-mails longos não alargam o slide. */
+  .demo-access thead { display: none; }
+  .demo-access tbody tr { display: flex; flex-wrap: wrap; gap: 6px 8px; padding: 8px 0; }
+  .demo-access tbody th { flex: 1 0 100%; padding: 0; }
+  .demo-access td { padding: 0; min-width: 0; }
+  .copy-value { max-width: 100%; }
+  .copy-value span { overflow-wrap: anywhere; text-align: left; }
   .facts > div { grid-template-columns: 1fr; gap: 4px; }
   .lightbox { padding: 64px 10px 24px; }
   .lightbox-nav { top: auto; bottom: 18px; translate: none; }
