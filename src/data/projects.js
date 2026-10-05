@@ -1,5 +1,6 @@
 // Contas de teste: criadas pelo script de demonstração de cada repositório
-// (veja o README de cada projeto). Todas entram sem cadastro.
+// (veja o README de cada projeto). Todas entram sem cadastro. Projetos que
+// abrem sem conta deixam `accounts` vazio e explicam em `accountsNote`.
 const shots = (slug, kind, captions) =>
   captions.map((caption, i) => ({ src: `/projetos/${slug}/${kind}-${i + 1}.webp`, caption }));
 
@@ -80,26 +81,32 @@ export const projects = [
     mobile: shots("cutflow", "mobile", ["Escolha do dia", "Serviço e horário", "Meus agendamentos"]),
   },
   {
-    slug: "coupleflow",
-    name: "CoupleFlow",
-    subtitle: "Organização compartilhada para casais",
-    color: "#f4623a",
+    slug: "forgeflow",
+    name: "ForgeFlow",
+    subtitle: "Diário de musculação com recordes e evolução",
+    color: "#ff7a1a",
     summary:
-      "Um espaço para o casal organizar a vida a dois num lugar só, em vez de espalhar tudo entre conversas e anotações soltas: ideias, planos com data, fotos das memórias e presentes, visíveis para os dois ao mesmo tempo, com notificação quando o outro mexe em algo.",
+      "App de treino para registrar cada série em segundos: a carga da última vez aparece como referência, o descanso começa sozinho e a série que bate um recorde ganha uma medalha na hora. As rotinas ficam em pastas (uma por academia, por exemplo) e se reorganizam arrastando; cada treino guarda onde foi feito, e a evolução mostra gráficos por período, por academia e por exercício. São 130 exercícios com animação e instruções em português. Dá para importar o histórico do Hevy (treinos e medidas), usar sem internet e, com a conta Google, sincronizar entre aparelhos.",
     tryIt: [
-      "Entre como admin e crie um plano.",
-      "Entre como parceiro em outra aba: o plano aparece para os dois, com notificação.",
-      "Use o sorteio quando não souberem o que fazer.",
+      "Toque em “Usar sem conta” e comece um treino livre: cada série mostra a carga da última vez.",
+      "Conclua uma série mais pesada para ver a medalha de recorde e o descanso começando sozinho.",
+      "Em Rotinas, crie pastas e arraste as rotinas entre elas; no celular, deslize uma série para apagar.",
     ],
-    stack: ["React", "TypeScript", "Supabase"],
-    repo: "https://github.com/EduuGah/CoupleFlow",
-    demo: "https://couple-flow.vercel.app/",
-    accounts: [
-      { role: "Pessoa 1", user: "admin", password: "admin" },
-      { role: "Pessoa 2", user: "parceiro", password: "parceiro" },
-    ],
-    desktop: shots("coupleflow", "desktop", ["Início do casal", "Lista de planos"]),
-    mobile: shots("coupleflow", "mobile", ["Sorteio de plano", "Notificações", "Novo plano"]),
+    stack: ["React", "TypeScript", "Firebase", "Tailwind CSS", "Vite", "PWA"],
+    repo: "https://github.com/EduuGah/ForgeFlow-2.0",
+    demo: "https://newforgeflow.vercel.app/",
+    accounts: [],
+    accountsNote:
+      "Não precisa de conta: toque em “Usar sem conta” na tela inicial. Os dados ficam só no seu navegador; entrando com o Google, eles sincronizam entre aparelhos.",
+    desktop: shots("forgeflow", "desktop", [
+      "Entrada",
+      "Painel do dia",
+      "Rotinas em pastas",
+      "Treino com recorde e descanso",
+      "Evolução por academia",
+      "Exercício com animação",
+    ]),
+    mobile: shots("forgeflow", "mobile", ["Treino em andamento", "Rotinas em pastas", "Instruções do exercício", "Academia"]),
   },
   {
     slug: "pluralrh",
