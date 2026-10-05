@@ -92,7 +92,7 @@ export const projects = [
       "Conclua uma série mais pesada para ver a medalha de recorde e o descanso começando sozinho.",
       "Em Rotinas, crie pastas e arraste as rotinas entre elas; no celular, deslize uma série para apagar.",
     ],
-    stack: ["React", "TypeScript", "Firebase", "Tailwind CSS", "Vite", "PWA"],
+    stack: ["React", "TypeScript", "Supabase", "Tailwind CSS", "Vite", "PWA"],
     repo: "https://github.com/EduuGah/ForgeFlow-2.0",
     demo: "https://newforgeflow.vercel.app/",
     accounts: [],
