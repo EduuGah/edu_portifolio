@@ -27,20 +27,22 @@ export function DemoAccess({ accounts, note }) {
     <div className="demo-access">
       <p className="demo-access-title"><KeyRound size={15} aria-hidden="true" /> Teste sem criar conta</p>
       {note && <p className="demo-access-note">{note}</p>}
-      <table>
-        <thead>
-          <tr><th scope="col">Perfil</th><th scope="col">Usuário</th><th scope="col">Senha</th></tr>
-        </thead>
-        <tbody>
-          {accounts.map((a) => (
-            <tr key={a.user}>
-              <th scope="row">{a.role}</th>
-              <td><CopyValue value={a.user} label="usuário" /></td>
-              <td><CopyValue value={a.password} label="senha" /></td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {accounts.length > 0 && (
+        <table>
+          <thead>
+            <tr><th scope="col">Perfil</th><th scope="col">Usuário</th><th scope="col">Senha</th></tr>
+          </thead>
+          <tbody>
+            {accounts.map((a) => (
+              <tr key={a.user}>
+                <th scope="row">{a.role}</th>
+                <td><CopyValue value={a.user} label="usuário" /></td>
+                <td><CopyValue value={a.password} label="senha" /></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }
